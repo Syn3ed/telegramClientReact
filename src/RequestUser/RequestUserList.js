@@ -58,6 +58,10 @@ const RequestUserList = () => {
   const { tg, queryId } = useTelegram();
   const {id} = useParams()
 
+  const SendData = () =>{
+    tg.sendData('/create_request')
+    tg.close()
+}
   const MainBut = () => {
     tg.MainButton.show();
     tg.BackButton.hide()
