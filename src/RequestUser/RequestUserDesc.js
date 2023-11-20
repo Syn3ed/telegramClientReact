@@ -47,7 +47,7 @@ const RequestUserDesc = () => {
     }
     const SendData = () =>{
         tg.sendData('/desMes')
-        tg.close()
+        // tg.close()
     }
     const onSendData = useCallback(() => {
         const data = {
@@ -66,9 +66,9 @@ const RequestUserDesc = () => {
 
 
     useEffect(() => {
-        Telegram.WebApp.onEvent('mainButtonClicked', onSendData)
+        Telegram.WebApp.onEvent('mainButtonClicked', SendData)
         return()=>{
-            Telegram.WebApp.offEvent('mainButtonClicked', onSendData)
+            Telegram.WebApp.offEvent('mainButtonClicked', SendData)
             }
     },[])
 
