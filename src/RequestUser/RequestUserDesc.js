@@ -41,7 +41,7 @@ const RequestUserDesc = () => {
         tg.BackButton.show();
         if (status !== "В работе") {
             tg.MainButton.setParams({
-                text: `Дополнить заявку`
+                text: `Дополнитьd заявку`
             });
         }
     }
@@ -66,7 +66,7 @@ const RequestUserDesc = () => {
 
 
     useEffect(() => {
-        tg.MainButton.onClick(onSendData)
+        tg.onEvent('mainButtonClicked', onSendData)
     },[])
 
 
