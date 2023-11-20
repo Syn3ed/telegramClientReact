@@ -27,8 +27,8 @@ const RequestUserDesc = () => {
                     username: item.username,
                     address: item.address
                 }));
-                MainBut(dataArray[0].status);
-                console.log('Full Data Array:', dataArray[0].status);
+                // MainBut(dataArray[0].status);
+                // console.log('Full Data Array:', dataArray[0].status);
                 setDataArray(dataArray);
             } catch (error) {
                 console.error('Ошибка при получении данных о заявке:', error);
