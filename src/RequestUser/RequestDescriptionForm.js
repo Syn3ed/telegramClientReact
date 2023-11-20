@@ -17,7 +17,7 @@ const RequestDescriptionForm = ({ request }) => {
             username: request.username,
             queryId,
         }
-        fetch('http://localhost:3000/replyToUser', {
+        fetch('http://localhost:3000/replyToOperator', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
