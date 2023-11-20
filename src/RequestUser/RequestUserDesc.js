@@ -66,9 +66,9 @@ const RequestUserDesc = () => {
 
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        Telegram.WebApp.onEvent('mainButtonClicked', onSendData)
         return()=>{
-             tg.offEvent('mainButtonClicked', onSendData)
+            Telegram.WebApp.offEvent('mainButtonClicked', onSendData)
             }
     },[])
 
