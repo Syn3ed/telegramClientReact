@@ -1,5 +1,5 @@
 import './RequestUserList.css'
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTelegram } from "../Hooks/useTelegram";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -56,12 +56,12 @@ const requestList = [
 
 const RequestUserList = () => {
   const { tg, queryId } = useTelegram();
-  const {id} = useParams()
+  const { id } = useParams()
 
-  const SendData = () =>{
+  const SendData = () => {
     tg.sendData('/create_request')
     tg.close()
-}
+  }
   const MainBut = () => {
     tg.MainButton.show();
     tg.BackButton.hide()
@@ -90,6 +90,12 @@ const RequestUserList = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    Telegram.WebApp.onEvent('mainButtonClicked', SendData)
+    return () => {
+      Telegram.WebApp.offEvent('mainButtonClicked', SendData)
+    }
+  }, [])
 
   useEffect(() => {
     console.log(id)
