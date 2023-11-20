@@ -66,7 +66,10 @@ const RequestUserDesc = () => {
 
 
     useEffect(() => {
-        tg.MainButton.onClick(SendData)
+        tg.onEvent('mainButtonClicked', onSendData)
+        return()=>{
+             tg.offEvent('mainButtonClicked', onSendData)
+            }
     },[])
 
 
