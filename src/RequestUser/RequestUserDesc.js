@@ -23,6 +23,8 @@ const RequestUserDesc = () => {
     }
     const MainBut = () => {
         tg.BackButton.show();
+        tg.MainButton.hide();
+        tg.MainButton.show();
         tg.MainButton.setParams({
             text: `Дополнить заявку`
         });
@@ -43,7 +45,7 @@ const RequestUserDesc = () => {
                     username: item.username,
                     address: item.address
                 }));
-                // MainBut(dataArray[0].status);
+                 MainBut();
                 // console.log('Full Data Array:', dataArray[0].status);
                 setDataArray(dataArray);
             } catch (error) {
