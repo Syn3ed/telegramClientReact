@@ -49,6 +49,7 @@ const RequestListDesc = () => {
     }
     const SendData = () =>{
         const userRequestId = dataArray[0].userRequestId
+        console.log(userRequestId,userRequestId,userRequestId)
         tg.sendData(`/resToUser ${userRequestId}`)
         tg.close()
     }

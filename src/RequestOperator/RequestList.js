@@ -9,6 +9,7 @@ const RequestUserList = () => {
   const [dataArray, setDataArray] = useState([]);
 
   useEffect(() => {
+    tg.MainButton.hide()
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/req`);
