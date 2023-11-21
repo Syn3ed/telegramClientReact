@@ -14,10 +14,10 @@ const RequestUserDesc = () => {
 
 
 
-    const SendData = (userRequestId) => {
+    const SendData = () => {
         
         // console.log(userRequestId, userRequestId, userRequestId)
-        console.log(userRequestId, userRequestId, userRequestId)
+        // console.log(userRequestId, userRequestId, userRequestId)
         tg.sendData(`/lol`)
         tg.close()
     }
@@ -56,9 +56,9 @@ const RequestUserDesc = () => {
         fetchData();
     }, [id]);
     useEffect(() => {
-        Telegram.WebApp.onEvent('mainButtonClicked', SendData( dataArray[0].userRequestId))
+        Telegram.WebApp.onEvent('mainButtonClicked', SendData)
         return () => {
-            Telegram.WebApp.offEvent('mainButtonClicked', SendData( dataArray[0].userRequestId))
+            Telegram.WebApp.offEvent('mainButtonClicked', SendData)
         }
     }, [])
 
