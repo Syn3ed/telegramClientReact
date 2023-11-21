@@ -47,13 +47,17 @@ const RequestListDesc = () => {
         }
     }
     const SendData = () =>{
-        tg.sendData('/desMes')
+        const userRequestId = item.userRequestId
+        tg.sendData(`/resToUser ${userRequestId}`)
         tg.close()
     }
 
 
     useEffect(() => {
-        tg.MainButton.onClick(SendData)
+        Telegram.WebApp.onEvent('mainButtonClicked', SendData)
+        return()=>{
+            Telegram.WebApp.offEvent('mainButtonClicked', SendData)
+            }
     },[])
 
 

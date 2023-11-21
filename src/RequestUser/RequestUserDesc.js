@@ -46,7 +46,8 @@ const RequestUserDesc = () => {
         }
     }
     const SendData = () =>{
-        tg.sendData('/desMes')
+        const userRequestId = dataArray[0].userRequestId
+        tg.sendData(`/resToOperator ${userRequestId}`)
         // tg.close()
     }
     const onSendData = useCallback(() => {
