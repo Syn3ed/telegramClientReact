@@ -39,6 +39,7 @@ const RequestListDesc = () => {
     }, [id]);
     const MainBut = (status) => {
         tg.BackButton.show();
+        tg.MainButton.show();
         if (status !== "В работе") {
             // tg.MainButton.show();
             tg.MainButton.setParams({
@@ -47,7 +48,7 @@ const RequestListDesc = () => {
         }
     }
     const SendData = () =>{
-        const userRequestId = item.userRequestId
+        const userRequestId = dataArray[0].userRequestId
         tg.sendData(`/resToUser ${userRequestId}`)
         tg.close()
     }
