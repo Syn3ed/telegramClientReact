@@ -20,18 +20,18 @@ const RequestUserDesc = () => {
         tg.sendData(`/lol`)
         tg.close()
     }
-    const oSendData = useCallback(() => {
-        const data = dataArray[0].userRequestId
-        tg.sendData(JSON.stringify(data));
-    }, [dataArray[0].userRequestId])
-    const MainBut = () => {
-        tg.BackButton.show();
-        tg.MainButton.hide();
-        tg.MainButton.show();
-        tg.MainButton.setParams({
-            text: `Дополнить заявку`
-        });
-    }
+    // const oSendData = useCallback(() => {
+    //     const data = dataArray[0].userRequestId
+    //     tg.sendData(JSON.stringify(data));
+    // }, [dataArray[0].userRequestId])
+    // const MainBut = () => {
+    //     tg.BackButton.show();
+    //     tg.MainButton.hide();
+    //     tg.MainButton.show();
+    //     tg.MainButton.setParams({
+    //         text: `Дополнить заявку`
+    //     });
+    // }
 
 
     useEffect(() => {
@@ -59,9 +59,9 @@ const RequestUserDesc = () => {
         fetchData();
     }, [id]);
     useEffect(() => {
-        Telegram.WebApp.onEvent('mainButtonClicked', oSendData)
+        Telegram.WebApp.onEvent('mainButtonClicked', SendData) 
         return () => {
-            Telegram.WebApp.offEvent('mainButtonClicked', oSendData)
+            Telegram.WebApp.offEvent('mainButtonClicked', SendData)
         }
     }, [])
 
