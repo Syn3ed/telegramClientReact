@@ -24,14 +24,14 @@ const RequestUserDesc = () => {
     //     const data = dataArray[0].userRequestId
     //     tg.sendData(JSON.stringify(data));
     // }, [dataArray[0].userRequestId])
-    // const MainBut = () => {
-    //     tg.BackButton.show();
-    //     tg.MainButton.hide();
-    //     tg.MainButton.show();
-    //     tg.MainButton.setParams({
-    //         text: `Дополнить заявку`
-    //     });
-    // }
+    const MainBut = () => {
+        tg.BackButton.show();
+        tg.MainButton.hide();
+        tg.MainButton.show();
+        tg.MainButton.setParams({
+            text: `Дополнить заявку`
+        });
+    }
 
 
     useEffect(() => {
