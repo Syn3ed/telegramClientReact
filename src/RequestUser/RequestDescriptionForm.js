@@ -33,7 +33,7 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={onSendData}>Закрыть заявку</button>
-                    <button type="button" onClick={onSendData}>Ответить на заявку</button>
+                    <button type="button" onClick={onSendData}>Ответить</button>
                 </div>
             );
         } else if (request.status === 'В работе') {
