@@ -18,7 +18,7 @@ const RequestUserDesc = () => {
         // console.log(userRequestId, userRequestId, userRequestId)
         // console.log(userRequestId, userRequestId, userRequestId)
         tg.sendData(`/lol`)
-        tg.close()
+        // tg.close()
     }
     // const oSendData = useCallback(() => {
     //     const data = dataArray[0].userRequestId
