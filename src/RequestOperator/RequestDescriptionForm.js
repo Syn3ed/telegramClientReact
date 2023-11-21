@@ -6,10 +6,7 @@ const RequestDescriptionForm = ({ request }) => {
 
     const { tg,queryId } = useTelegram();
 
-    const Onclose = () => {
-        tg.close()
-        console.log('dsds')
-    }
+    
 
     const onSendData = useCallback(() => {
         const data = {
@@ -25,17 +22,6 @@ const RequestDescriptionForm = ({ request }) => {
             body: JSON.stringify(data)
         })
     }, [request])
-    const SendData = async () =>{
-        try{
-
-            const response = await axios.post(`http://localhost:3000/reply/${id}`,{request});
-
-        }catch(e){
-
-        }
-    }
-
-    
 
     const renderButtons = () => {
         if (request.status === 'ожидает ответа оператора') {

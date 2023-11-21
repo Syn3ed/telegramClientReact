@@ -67,7 +67,6 @@ const RequestListDesc = () => {
         const handleBackButton = () => {
             navigate(-1);
         };
-        // MainBut();
         tg.BackButton.onClick(handleBackButton);
         return () => {
             tg.BackButton.offClick(handleBackButton);

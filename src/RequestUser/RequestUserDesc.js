@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import RequestDescriptionForm from './RequestDescriptionForm';
 import { useTelegram } from "../Hooks/useTelegram";
@@ -11,6 +11,22 @@ const RequestUserDesc = () => {
 
     const [reqLL, setReqLL] = useState([]);
     const [dataArray, setDataArray] = useState([]);
+
+
+
+    const SendData = () => {
+        const userRequestId = dataArray[0].userRequestId
+        console.log(userRequestId, userRequestId, userRequestId)
+        console.log(userRequestId, userRequestId, userRequestId)
+        tg.sendData(`/resToOperator ${userRequestId}`)
+        tg.close()
+    }
+    const MainBut = () => {
+        tg.BackButton.show();
+        tg.MainButton.setParams({
+            text: `Дополнить заявку`
+        });
+    }
 
 
     useEffect(() => {
@@ -37,21 +53,13 @@ const RequestUserDesc = () => {
 
         fetchData();
     }, [id]);
-    const MainBut = (status) => {
-        tg.BackButton.show();
-        if (status !== "В работе") {
-            tg.MainButton.setParams({
-                text: `Дополнить заявку`
-            });
+    useEffect(() => {
+        Telegram.WebApp.onEvent('mainButtonClicked', SendData)
+        return () => {
+            Telegram.WebApp.offEvent('mainButtonClicked', SendData)
         }
-    }
-    const SendData = () =>{
-        const userRequestId = dataArray[0].userRequestId
-        console.log(userRequestId,userRequestId,userRequestId)
-        console.log(userRequestId,userRequestId,userRequestId)
-        tg.sendData(`/resToOperator ${userRequestId}`)
-        // tg.close()
-    }
+    }, [])
+
     const onSendData = useCallback(() => {
         const data = {
             userRequestId: dataArray[0].userRequestId,
@@ -67,13 +75,6 @@ const RequestUserDesc = () => {
         })
     }, [dataArray, queryId])
 
-
-    useEffect(() => {
-        Telegram.WebApp.onEvent('mainButtonClicked', SendData)
-        return()=>{
-            Telegram.WebApp.offEvent('mainButtonClicked', SendData)
-            }
-    },[])
 
 
     useEffect(() => {
