@@ -39,21 +39,37 @@ const RequestDescriptionForm = ({ request }) => {
         })
     }, [request])
 
+    const closeReq = useCallback(() => {
+        tg.close();
+        const data = {
+            userRequestId: request.userRequestId,
+            username: request.username,
+            queryId,
+        }
+        fetch('https://tg-server-0ckm.onrender.com/closeReq', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    }, [request])
+
     const renderButtons = () => {
         if (request.status === 'ожидает ответа оператора') {
             return (
                 <div>
-                    <button type="button" onClick={onSendData}>Закрыть заявку</button>
+                    <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
-                    <button type="button" onClick={onSendData}>Отправить фото</button>
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
             return (
                 <div>
-                    <button type="button" onClick={onSendData}>Закрыть заявку</button>
+                    <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
-                    <button type="button" onClick={onSendData}>Отправить фото</button>
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         }
