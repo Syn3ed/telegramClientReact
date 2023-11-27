@@ -80,7 +80,7 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="dialog">Диалог с оператором</label>
-                    <input type="text" id="dialog" name="dialog" value={request.dialog} readOnly />
+                    <textarea type="text" id="dialog" name="dialog" value={request.dialog} readOnly />
                 </div>
                 {renderButtons()}
             </form>
