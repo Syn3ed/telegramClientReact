@@ -16,7 +16,7 @@ const RequestListDesc = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/mes/${id}`);
+                const response = await axios.get(`https://tg-server-0ckm.onrender.com/mes/${id}`);
                 setReqLL(response.data);
                 const dataArray = response.data.map(item => ({
                     dialog: item.dialog,

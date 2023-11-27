@@ -75,7 +75,7 @@ const RequestUserList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/reqUser/${id}`);
+        const response = await axios.get(`https://tg-server-0ckm.onrender.com/reqUser/${id}`);
         setDataArray(response.data.map(item => ({
           id: item.id,
           status: item.status,

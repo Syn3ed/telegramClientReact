@@ -17,7 +17,22 @@ const RequestDescriptionForm = ({ request }) => {
             username: request.username,
             queryId,
         }
-        fetch('http://localhost:3000/replyToOperator', {
+        fetch('https://tg-server-0ckm.onrender.com/replyToOperator', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    }, [request])
+
+    const onSendPhoto = useCallback(() => {
+        const data = {
+            userRequestId: request.userRequestId,
+            username: request.username,
+            queryId,
+        }
+        fetch('https://tg-server-0ckm.onrender.com/replyToOperator', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,6 +49,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={onSendData}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={onSendData}>Отправить фото</button>
                 </div>
             );
         } else if (request.status === 'В работе') {
