@@ -52,10 +52,12 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={onSendData}>Отправить фото</button>
                 </div>
             );
-        } else if (request.status === 'В работе') {
+        } else if (request.status === 'Заявка в обработке!') {
             return (
                 <div>
-                    <button type="button">Закрыть заявку</button>
+                    <button type="button" onClick={onSendData}>Закрыть заявку</button>
+                    <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={onSendData}>Отправить фото</button>
                 </div>
             );
         }
