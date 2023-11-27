@@ -72,15 +72,15 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="address">Адрес</label>
-                    <textarea type="text" id="address" name="address" value={request.address} readOnly />
+                    <input type="text" id="address" name="address" value={request.address} readOnly />
                 </div>
                 <div className="form-group">
                     <label htmlFor="description">Описание</label>
-                    <textarea type="text" id="description" name="description" value={request.description} readOnly />
+                    <input type="text" id="description" name="description" value={request.description} readOnly />
                 </div>
                 <div className="form-group">
                     <label htmlFor="dialog">Диалог с оператором</label>
-                    <textarea type="text" id="dialog" name="dialog" value={request.dialog} readOnly />
+                    <input type="text" id="dialog" name="dialog" value={request.dialog} readOnly />
                 </div>
                 {renderButtons()}
             </form>
