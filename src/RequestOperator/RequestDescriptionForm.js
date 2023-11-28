@@ -68,7 +68,7 @@ const RequestDescriptionForm = ({ request }) => {
       };
 
     const onSendPhoto = useCallback(() => {
-        tg.close();
+        // tg.close();
         const data = {
             userRequestId: request.userRequestId,
             username: request.username,
