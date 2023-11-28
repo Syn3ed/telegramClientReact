@@ -67,6 +67,15 @@ const RequestDescriptionForm = ({ request }) => {
         })
       };
 
+
+
+
+    const test = () =>{
+        fetch('https://tg-server-0ckm.onrender.com/handleShowPhoto', {
+            method: 'POST'
+        })
+    }
+
     const onSendPhoto = useCallback(() => {
         // tg.close();
         const data = {
@@ -124,6 +133,7 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
+                    <button type="button" onClick={test}>test</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
@@ -132,6 +142,7 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
+                    <button type="button" onClick={test}>test</button>
                 </div>
             );
         }
