@@ -64,7 +64,7 @@ const RequestDescriptionForm = ({ request }) => {
         })
     }, [request])
 
-    const photoToChat = useCallback(() => {
+    const photoToChat = useCallback((id) => {
         // // tg.close();
         // const data = {
         //     userRequestId: request.userRequestId,
@@ -78,7 +78,7 @@ const RequestDescriptionForm = ({ request }) => {
         //     },
         //     body: JSON.stringify(data)
         // })
-        console.log(dataArray.idMedia)
+        console.log(id)
     }, [request])
 
     const closeReq = useCallback(() => {
@@ -150,7 +150,7 @@ const RequestDescriptionForm = ({ request }) => {
                                 <div className="request-nicknameUser">{med.idMedia}</div>
                                 <div className="request-subject">{med.UserRequestId}</div>
                                 <div>
-                                <button type="button" onClick={photoToChat}>Показать фото</button>
+                                <button type="button" onClick={photoToChat(med.id)}>Показать фото</button>
                                 </div>
                             </div>
                         ))
