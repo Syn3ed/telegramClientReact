@@ -50,11 +50,23 @@ const RequestDescriptionForm = ({ request }) => {
 
     const handleShowPhoto = (idMedia) => {
         console.log(idMedia);
-        // Здесь вы можете выполнить другие действия, связанные с показом фото
+        const data = {
+            userRequestId: request.userRequestId,
+            username: request.username,
+            queryId,
+            idMedia,
+        }
+        fetch('https://tg-server-0ckm.onrender.com/handleShowPhoto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
       };
 
     const onSendPhoto = useCallback(() => {
-        // tg.close();
+        tg.close();
         const data = {
             userRequestId: request.userRequestId,
             username: request.username,
