@@ -30,7 +30,7 @@ const RequestDescriptionForm = ({ request }) => {
             username: request.username,
             queryId,
         }
-        fetch('https://tg-server-0ckm.onrender.com/replyToUserPhoto', {
+        fetch('https://tg-server-0ckm.onrender.com/replyToOperatorPhoto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
