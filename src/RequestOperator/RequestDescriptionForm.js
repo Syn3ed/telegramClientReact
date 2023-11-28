@@ -33,6 +33,7 @@ const RequestDescriptionForm = ({ request }) => {
               idMedia: item.idMedia,
               UserRequestId: item.UserRequestId
             })));
+            console.log(dataArray)
           } catch (error) {
             console.error('Ошибка при получении данных', error);
           }
