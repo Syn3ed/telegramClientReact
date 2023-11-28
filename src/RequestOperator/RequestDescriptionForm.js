@@ -39,7 +39,7 @@ const RequestDescriptionForm = ({ request }) => {
         };
         fetchData();
         console.log(dataArray[0])
-      }, []);
+      }, [request]);
 
     const onSendPhoto = useCallback(() => {
         // tg.close();
