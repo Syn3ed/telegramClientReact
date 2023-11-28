@@ -9,10 +9,22 @@ const RequestDescriptionForm = ({ request }) => {
 
     const SendData = () => {
         // console.log(userRequestId, userRequestId, userRequestId)
-        console.log(request)
-        tg.sendData(`/lol ${request}`)
+        console.log(request);
+        tg.sendData(`/lol ${request.username}`)
         // tg.close()
     }
+
+    const userj = request.username;
+    const ss = useCallback(() => {
+
+        const data = {
+            userj,
+            userj,
+            userj
+        }
+        tg.sendData(JSON.stringify(data));
+        console.log(JSON.stringify(data))
+    }, [userj])
     const onSendData = useCallback(() => {
         const data = {
             userRequestId: request.userRequestId,
@@ -137,7 +149,7 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
-                    <button type="button" onClick={SendData}>test</button>
+                    <button type="button" onClick={ss}>test</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
@@ -146,7 +158,7 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
-                    <button type="button" onClick={SendData}>test</button>
+                    <button type="button" onClick={ss}>test</button>
                 </div>
             );
         }
