@@ -64,6 +64,23 @@ const RequestDescriptionForm = ({ request }) => {
         })
     }, [request])
 
+    const photoToChat = useCallback(() => {
+        // // tg.close();
+        // const data = {
+        //     userRequestId: request.userRequestId,
+        //     username: request.username,
+        //     queryId,
+        // }
+        // fetch('https://tg-server-0ckm.onrender.com/replyToOperatorPhoto', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(data)
+        // })
+        console.log(dataArray.idMedia)
+    }, [request])
+
     const closeReq = useCallback(() => {
         tg.close();
         const data = {
@@ -133,7 +150,7 @@ const RequestDescriptionForm = ({ request }) => {
                                 <div className="request-nicknameUser">{med.idMedia}</div>
                                 <div className="request-subject">{med.UserRequestId}</div>
                                 <div>
-                                <button type="button" >Показать фото</button>
+                                <button type="button" onClick={onSendPhoto}>Показать фото</button>
                                 </div>
                             </div>
                         ))
