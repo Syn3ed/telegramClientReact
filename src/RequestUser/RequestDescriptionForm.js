@@ -6,6 +6,13 @@ const RequestDescriptionForm = ({ request }) => {
 
     const { tg,queryId } = useTelegram();
 
+
+    const SendData = () => {
+        // console.log(userRequestId, userRequestId, userRequestId)
+        console.log(request)
+        tg.sendData(`/lol`)
+        // tg.close()
+    }
     const Onclose = () => {
         tg.close()
         console.log('dsds')
