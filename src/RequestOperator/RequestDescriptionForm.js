@@ -48,6 +48,11 @@ const RequestDescriptionForm = ({ request }) => {
         fetchData();
     }, [request]);
 
+    const handleShowPhoto = (idMedia) => {
+        console.log(idMedia);
+        // Здесь вы можете выполнить другие действия, связанные с показом фото
+      };
+
     const onSendPhoto = useCallback(() => {
         // tg.close();
         const data = {
@@ -64,22 +69,23 @@ const RequestDescriptionForm = ({ request }) => {
         })
     }, [request])
 
-    const photoToChat = useCallback((id) => {
-        // // tg.close();
-        // const data = {
-        //     userRequestId: request.userRequestId,
-        //     username: request.username,
-        //     queryId,
-        // }
-        // fetch('https://tg-server-0ckm.onrender.com/replyToOperatorPhoto', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        console.log(id)
-    }, [request])
+    // const photoToChat = useCallback((id) => {
+    //     // // tg.close();
+    //     // const data = {
+    //     //     userRequestId: request.userRequestId,
+    //     //     username: request.username,
+    //     //     queryId,
+    //     // }
+    //     // fetch('https://tg-server-0ckm.onrender.com/replyToOperatorPhoto', {
+    //     //     method: 'POST',
+    //     //     headers: {
+    //     //         'Content-Type': 'application/json',
+    //     //     },
+    //     //     body: JSON.stringify(data)
+    //     // })
+    //     console.log(id)
+    // }, [request])
+    
 
     const closeReq = useCallback(() => {
         tg.close();
@@ -150,7 +156,7 @@ const RequestDescriptionForm = ({ request }) => {
                                 <div className="request-nicknameUser">{med.idMedia}</div>
                                 <div className="request-subject">{med.UserRequestId}</div>
                                 <div>
-                                <button type="button" onClick={photoToChat(med.id)}>Показать фото</button>
+                                <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button>
                                 </div>
                             </div>
                         ))
