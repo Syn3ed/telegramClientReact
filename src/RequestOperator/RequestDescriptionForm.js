@@ -9,11 +9,10 @@ const RequestDescriptionForm = ({ request }) => {
 
     const SendData = () => {
         // console.log(userRequestId, userRequestId, userRequestId)
-        // console.log(userRequestId, userRequestId, userRequestId)
-        tg.sendData(`/lol`)
+        console.log(request)
+        tg.sendData(`/lol ${request}`)
         // tg.close()
     }
-
     const onSendData = useCallback(() => {
         const data = {
             userRequestId: request.userRequestId,
