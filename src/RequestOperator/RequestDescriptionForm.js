@@ -28,17 +28,17 @@ const RequestDescriptionForm = ({ request }) => {
         const fetchData = async () => {
           try {
             const response = await axios.get(`https://tg-server-0ckm.onrender.com/reqPhoto/${request.userRequestId}`);
-            await setDataArray(response.data.map(item => ({
+            setDataArray(response.data.map(item => ({
               id: item.id,
               idMedia: item.idMedia,
               UserRequestId: item.UserRequestId
             })));
-           await  console.log(dataArray[0].idMedia)
           } catch (error) {
             console.error('Ошибка при получении данных', error);
           }
         };
         fetchData();
+        console.log(dataArray[0].idMedia)
       }, []);
 
     const onSendPhoto = useCallback(() => {
