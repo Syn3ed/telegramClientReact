@@ -38,7 +38,7 @@ const RequestDescriptionForm = ({ request }) => {
           }
         };
         fetchData();
-        console.log(dataArray[0])
+        console.log(request.userRequestId)
       }, [request]);
 
     const onSendPhoto = useCallback(() => {
