@@ -125,6 +125,20 @@ const RequestDescriptionForm = ({ request }) => {
                     <textarea type="text" id="dialog" name="dialog" value={request.dialog} readOnly />
                 </div>
                 {renderButtons()}
+                <div>
+                    {dataArray.length > 0 ? (
+                        dataArray.map((med) => (
+                            <div className="request-item">
+                                <div className="request-id">{med.id}</div>
+                                <div className="request-nicknameUser">{med.idMedia}</div>
+                                <div className="request-subject">{med.UserRequestId}</div>
+                            </div>
+                        ))
+                    ) : (
+                        <div>Загрузка данных...</div>
+                    )}
+                </div>
+
             </form>
         </div>
     );
