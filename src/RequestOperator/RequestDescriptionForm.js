@@ -71,7 +71,7 @@ const RequestDescriptionForm = ({ request }) => {
 
 
     const test = () =>{
-        fetch('https://tg-server-0ckm.onrender.com/handleShowPhoto', {
+        fetch('https://tg-server-0ckm.onrender.com/test', {
             method: 'POST'
         })
     }
