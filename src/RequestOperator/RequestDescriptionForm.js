@@ -7,7 +7,12 @@ const RequestDescriptionForm = ({ request }) => {
     const [dataArray, setDataArray] = useState([]);
     const { tg, queryId } = useTelegram();
 
-
+    const SendData = () => {
+        // console.log(userRequestId, userRequestId, userRequestId)
+        // console.log(userRequestId, userRequestId, userRequestId)
+        tg.sendData(`/lol`)
+        // tg.close()
+    }
 
     const onSendData = useCallback(() => {
         const data = {
@@ -133,7 +138,7 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
-                    <button type="button" onClick={test}>test</button>
+                    <button type="button" onClick={SendData}>test</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
@@ -142,7 +147,7 @@ const RequestDescriptionForm = ({ request }) => {
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
-                    <button type="button" onClick={test}>test</button>
+                    <button type="button" onClick={SendData}>test</button>
                 </div>
             );
         }

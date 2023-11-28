@@ -39,13 +39,13 @@ const RequestListDesc = () => {
     }, [id]);
     const MainBut = (status) => {
         tg.BackButton.show();
-        tg.MainButton.show();
-        if (status !== "В работе") {
-            // tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Взять в работу`
-            });
-        }
+        tg.MainButton.hide()
+        // if (status !== "В работе") {
+        //     // tg.MainButton.show();
+        //     tg.MainButton.setParams({
+        //         text: `Взять в работу`
+        //     });
+        // }
     }
     const SendData = () =>{
         const userRequestId = dataArray[0].userRequestId

@@ -27,7 +27,7 @@ const RequestUserDesc = () => {
     const MainBut = () => {
         tg.BackButton.show();
         tg.MainButton.hide();
-        tg.MainButton.show();
+        // tg.MainButton.show();
         tg.MainButton.setParams({
             text: `Дополнить заявку`
         });
