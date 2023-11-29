@@ -17,12 +17,12 @@ const RequestForm = () => {
     tg.sendData(JSON.stringify(data));
 }, [address, category, description])
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log('Address:', address);
-//     console.log('Category:', category);
-//     console.log('Description:', description);
-//   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Address:', address);
+    console.log('Category:', category);
+    console.log('Description:', description);
+  };
 
   return (
     <div className="request-description-form">
