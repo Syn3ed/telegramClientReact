@@ -163,16 +163,16 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    <button type="button" onClick={rep}>Ответить</button>
-                    <button type="button" onClick={sendPhoto}>Отправить фото</button>
+                    <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    <button type="button" onClick={rep}>Ответить</button>
-                    <button type="button" onClick={sendPhoto}>Отправить фото</button>
+                    <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         }
