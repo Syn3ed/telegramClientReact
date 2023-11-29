@@ -9,12 +9,12 @@ const RequestDescriptionForm = ({ request }) => {
 
 
 
-    const SendData = () => {
-        // console.log(userRequestId, userRequestId, userRequestId)
-        console.log(request)
-        tg.sendData(`/lol`)
-        // tg.close()
-    }
+    // const SendData = () => {
+    //     // console.log(userRequestId, userRequestId, userRequestId)
+    //     console.log(request)
+    //     tg.sendData(`/lol`)
+    //     // tg.close()
+    // }
     const Onclose = () => {
         tg.close()
         console.log('dsds')
@@ -70,6 +70,13 @@ const RequestDescriptionForm = ({ request }) => {
     }, [request])
 
     const idu = request.userRequestId
+
+    const sendData = useCallback(()=>{
+        tg.sendData(`/replyToOperator ${idu}`)
+        // console.log(idu)
+    })
+    
+
     const sendPhoto = useCallback(() =>{
         tg.sendData(`/resToOperatorPhoto ${idu}`)
     })
@@ -97,7 +104,7 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    <button type="button" onClick={onSendData}>Ответить</button>
+                    {/* <button type="button" onClick={onSendData}>Ответить</button> */}
                     <button type="button" onClick={sendPhoto}>Отправить фото</button>
                 </div>
             );
@@ -105,7 +112,7 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={sendData}>Ответить</button>
                     <button type="button" onClick={sendPhoto}>Отправить фото</button>
                 </div>
             );
