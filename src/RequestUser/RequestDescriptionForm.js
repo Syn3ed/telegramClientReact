@@ -72,7 +72,7 @@ const RequestDescriptionForm = ({ request }) => {
     const idu = request.userRequestId
 
     const sendData = useCallback(()=>{
-        tg.sendData(`/replyToOperator ${idu}`)
+        tg.sendData(`/resToOperator ${idu}`)
         // console.log(idu)
     })
     
