@@ -25,6 +25,14 @@ const RequestDescriptionForm = ({ request }) => {
         tg.sendData(JSON.stringify(data));
         console.log(JSON.stringify(data))
     }, [userj])
+    const id = request.userRequestId;
+    const rep = useCallback(() => {
+
+        tg.sendData(`/resToUser ${id}`)
+        console.log(JSON.stringify(data))
+    }, [id])
+    
+
     const onSendData = useCallback(() => {
         const data = {
             userRequestId: request.userRequestId,
@@ -147,7 +155,7 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={rep}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                     <button type="button" onClick={ss}>test</button>
                 </div>
@@ -156,7 +164,7 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    <button type="button" onClick={onSendData}>Ответить</button>
+                    <button type="button" onClick={rep}>Ответить</button>
                     <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                     <button type="button" onClick={ss}>test</button>
                 </div>
