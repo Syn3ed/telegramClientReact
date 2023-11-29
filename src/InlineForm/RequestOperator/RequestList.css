@@ -1,0 +1,73 @@
+.request-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #373b47;
+  }
+  
+  .request-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #373b47;
+    color: #c0bebd;
+    font-weight: bold;
+    align-items: center;
+  }
+  
+  .header-item {
+    flex: 1;
+    text-align: center;
+    background-color: #373b47;
+  }
+  
+  .request-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #c0bebd;
+    padding: 10px;
+    border-bottom: 2px solid #000000;
+    align-items: center;
+    background-color:#1F2630
+  }
+  
+  .request-id,
+  .request-subject,
+  request-address,
+  request-status {
+    flex: 1;
+    text-align: center;
+
+  }
+  
+  .request-subject,
+  request-address {
+    text-align: left;
+  }
+  .request-id {
+    width: 20%; 
+    text-align: center;
+  }
+  
+  .request-subject {
+    width: 30%; 
+    text-align: center;
+    word-wrap: break-word; 
+  }
+  .request-nicknameUser {
+    width: 50%; 
+    text-align: center;
+    word-wrap: break-word; 
+  }
+  
+  .request-status {
+    width: 10%; 
+    text-align: center;
+    word-wrap: break-word; 
+  }
+  

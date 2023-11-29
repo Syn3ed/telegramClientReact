@@ -1,17 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import {useEffect} from "react";
+import { useEffect } from "react";
 import './App.css';
 import RequestList from './RequestOperator/RequestList';
 import RequestListDesc from './RequestOperator/RequestListDesc';
-import Button from '../src/components/Button/Button';
 import RequestUserList from './RequestUser/RequestUserList';
 import RequestUserDesc from './RequestUser/RequestUserDesc';
+import InlineRequestUserDes from './InlineForm/RequestUser/RequestUserDesc'
+import InlineRequestListDesc from './InlineForm/RequestOperator/RequestListDesc'
 import loadList from './load'
+
+
 const tg = window.Telegram.WebApp
 
 function App() {
-
 
   useEffect(() => {
     tg.ready();
@@ -25,6 +27,8 @@ function App() {
         <Route path="/requestsOperator/:id" element={<RequestListDesc />} />
         <Route path="/RequestUserList/:id" element={<RequestUserList />} />
         <Route path="/requests/:id" element={<RequestUserDesc />} />
+        <Route path="/Inlinerequests/:id" element={<InlineRequestUserDes />} />
+        <Route path="/InlinerequestsOperator/:id" element={<InlineRequestListDesc />} />
       </Routes>
     </BrowserRouter>
   );
