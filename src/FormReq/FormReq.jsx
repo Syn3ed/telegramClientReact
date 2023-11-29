@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import './Style.css'; 
-
+import { useTelegram } from "../Hooks/useTelegram";
 const RequestForm = () => {
   const [address, setAddress] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Address:', address);
-    console.log('Category:', category);
-    console.log('Description:', description);
-  };
+  const { tg, queryId } = useTelegram();
+
+  const onSendData = useCallback(() => {
+    const data = {
+        address,
+        category,
+        description
+    }
+    tg.sendData(JSON.stringify(data));
+}, [address, category, description])
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log('Address:', address);
+//     console.log('Category:', category);
+//     console.log('Description:', description);
+//   };
 
   return (
     <div className="request-description-form">
@@ -49,7 +60,7 @@ const RequestForm = () => {
           />
         </div>
 
-        <button type="submit">Отправить заявку</button>
+        <button type="submit" onClick={onSendData}>Отправить заявку</button>
       </form>
     </div>
   );
