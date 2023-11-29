@@ -10,6 +10,12 @@ import loadList from './load'
 const tg = window.Telegram.WebApp
 
 function App() {
+
+
+  useEffect(() => {
+    tg.ready();
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>

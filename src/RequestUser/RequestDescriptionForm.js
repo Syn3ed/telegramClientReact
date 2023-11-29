@@ -3,8 +3,9 @@ import './RequestDescriptionForm.css';
 import { useTelegram } from "../Hooks/useTelegram";
 
 const RequestDescriptionForm = ({ request }) => {
+    const [dataArray, setDataArray] = useState([]);
+    const { tg, queryId } = useTelegram();
 
-    const { tg,queryId } = useTelegram();
 
 
     const SendData = () => {
@@ -17,6 +18,31 @@ const RequestDescriptionForm = ({ request }) => {
         tg.close()
         console.log('dsds')
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`https://tg-server-0ckm.onrender.com/reqPhoto/${request.userRequestId}`);
+                //   setDataArray(response.data.map(item => ({
+                //     id: item.id,
+                //     idMedia: item.idMedia,
+                //     UserRequestId: item.UserRequestId
+                //   })));
+
+                const dataArray = response.data.map(item => ({
+                    id: item.id,
+                    idMedia: item.idMedia,
+                    UserRequestId: item.UserRequestId
+                }));
+                setDataArray(dataArray);
+                console.log(dataArray);
+            } catch (error) {
+                console.error('Ошибка при получении данных', error);
+            }
+        };
+        fetchData();
+    }, [request]);
+
 
     const onSendData = useCallback(() => {
         const data = {
@@ -48,6 +74,11 @@ const RequestDescriptionForm = ({ request }) => {
         })
     }, [request])
 
+    const idu = request.userRequestId
+    const sendPhoto = useCallback(() =>{
+        tg.sendData(`/resToOperatorPhoto ${idu}`)
+    })
+
     const closeReq = useCallback(() => {
         tg.close();
         const data = {
@@ -72,7 +103,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
-                    {/* <button type="button" onClick={onSendPhoto}>Отправить фото</button> */}
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
@@ -80,7 +111,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
-                    {/* <button type="button" onClick={onSendPhoto}>Отправить фото</button> */}
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         }
@@ -108,6 +139,23 @@ const RequestDescriptionForm = ({ request }) => {
                     <textarea type="text" id="dialog" name="dialog" value={request.dialog} readOnly />
                 </div>
                 {renderButtons()}
+                <div>
+                    {dataArray.length > 0 ? (
+                        dataArray.map((med) => (
+                            <div className="request-item">
+                                <div className="request-id">{med.id}</div>
+                                <div className="request-nicknameUser">{med.idMedia}</div>
+                                <div className="request-subject">{med.UserRequestId}</div>
+                                <div>
+                                <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div>Загрузка данных...</div>
+                    )}
+                </div>
+
             </form>
         </div>
     );
