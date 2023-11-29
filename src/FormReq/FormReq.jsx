@@ -15,6 +15,7 @@ const RequestForm = () => {
         description
     }
     tg.sendData(JSON.stringify(data));
+    console.log(JSON.stringify(data))
 }, [address, category, description])
 
   const handleSubmit = (e) => {
