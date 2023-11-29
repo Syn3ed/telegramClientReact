@@ -8,6 +8,7 @@ import RequestUserList from './RequestUser/RequestUserList';
 import RequestUserDesc from './RequestUser/RequestUserDesc';
 import InlineRequestUserDes from './InlineForm/RequestUser/RequestUserDesc'
 import InlineRequestListDesc from './InlineForm/RequestOperator/RequestListDesc'
+import FormReq from './FormReq/FormReq'
 import loadList from './load'
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/requests/:id" element={<RequestUserDesc />} />
         <Route path="/Inlinerequests/:id" element={<InlineRequestUserDes />} />
         <Route path="/InlinerequestsOperator/:id" element={<InlineRequestListDesc />} />
+        <Route path="/FormReq" element={<FormReq />} />
       </Routes>
     </BrowserRouter>
   );
