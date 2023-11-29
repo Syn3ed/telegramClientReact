@@ -1,6 +1,7 @@
 import React, { useCallback ,useEffect,useState} from 'react';
 import './RequestDescriptionForm.css';
 import { useTelegram } from "../Hooks/useTelegram";
+import axios from 'axios';
 
 const RequestDescriptionForm = ({ request }) => {
     const [dataArray, setDataArray] = useState([]);
@@ -23,12 +24,6 @@ const RequestDescriptionForm = ({ request }) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`https://tg-server-0ckm.onrender.com/reqPhoto/${request.userRequestId}`);
-                //   setDataArray(response.data.map(item => ({
-                //     id: item.id,
-                //     idMedia: item.idMedia,
-                //     UserRequestId: item.UserRequestId
-                //   })));
-
                 const dataArray = response.data.map(item => ({
                     id: item.id,
                     idMedia: item.idMedia,
