@@ -6,13 +6,18 @@ import axios from 'axios';
 const RequestDescriptionForm = ({ request }) => {
     const [dataArray, setDataArray] = useState([]);
     const { tg, queryId } = useTelegram();
-
+     
+    const idu = request.userRequestId
+     
     const SendData = () => {
         // console.log(userRequestId, userRequestId, userRequestId)
         console.log(request);
         tg.sendData(`/lol ${request.username}`)
         // tg.close()
     }
+    const sendPhoto = useCallback(() =>{
+        tg.sendData(`/resToOperatorPhoto ${idu}`)
+    })
 
     const userj = request.username;
     const ss = useCallback(() => {
@@ -27,7 +32,7 @@ const RequestDescriptionForm = ({ request }) => {
     }, [userj]);
 
 
-    
+
     const id = request.userRequestId;
     const rep = useCallback(() => {
 
@@ -159,8 +164,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={rep}>Ответить</button>
-                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
-                    <button type="button" onClick={ss}>test</button>
+                    <button type="button" onClick={sendPhoto}>Отправить фото</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
@@ -168,8 +172,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
                     <button type="button" onClick={rep}>Ответить</button>
-                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
-                    <button type="button" onClick={ss}>test</button>
+                    <button type="button" onClick={sendPhoto}>Отправить фото</button>
                 </div>
             );
         }
