@@ -95,7 +95,24 @@ const RequestDescriptionForm = ({ request }) => {
             },
             body: JSON.stringify(data)
         })
-    }, [request])
+    }, [request]);
+
+    const handleShowPhoto = (idMedia) => {
+        console.log(idMedia);
+        const data = {
+            userRequestId: request.userRequestId,
+            username: request.username,
+            queryId,
+            idMedia,
+        }
+        fetch('https://tg-server-0ckm.onrender.com/handleShowPhoto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+      };
 
     
 
