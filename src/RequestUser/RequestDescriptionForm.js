@@ -149,7 +149,7 @@ const RequestDescriptionForm = ({ request }) => {
                                 <div className="request-nicknameUser">{med.idMedia}</div>
                                 <div className="request-subject">{med.UserRequestId}</div>
                                 <div>
-                                <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button>
+                                {/* <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button> */}
                                 </div>
                             </div>
                         ))

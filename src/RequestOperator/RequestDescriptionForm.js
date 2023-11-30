@@ -20,24 +20,15 @@ const RequestDescriptionForm = ({ request }) => {
     })
 
     const userj = request.username;
-    const ss = useCallback(() => {
-
-        const data = {
-            userj,
-            userj,
-            userj
-        }
-        tg.sendData(JSON.stringify(data));
-        console.log(JSON.stringify(data))
-    }, [userj]);
-
+    const medId = dataArray.idMedia
+    
 
 
     const id = request.userRequestId;
     const rep = useCallback(() => {
 
         tg.sendData(`/resToUser ${id}`)
-        console.log(JSON.stringify(data))
+       // console.log(JSON.stringify(data))
     }, [id])
     
 
@@ -81,6 +72,18 @@ const RequestDescriptionForm = ({ request }) => {
         };
         fetchData();
     }, [request]);
+
+
+
+    const ss = useCallback(() => {
+
+        const data = {
+            medId
+        }
+        tg.sendData(JSON.stringify(data));
+        console.log(JSON.stringify(data))
+    }, [medId]);
+
 
     const handleShowPhoto = (idMedia) => {
         console.log(idMedia);
@@ -211,7 +214,7 @@ const RequestDescriptionForm = ({ request }) => {
                                 <div className="request-nicknameUser">{med.idMedia}</div>
                                 <div className="request-subject">{med.UserRequestId}</div>
                                 <div>
-                                <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button>
+                                {/* <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button> */}
                                 </div>
                             </div>
                         ))
