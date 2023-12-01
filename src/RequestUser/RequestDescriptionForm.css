@@ -5,6 +5,18 @@
     color:#c0bebd;
   }
   
+  .auto-resize-textarea {
+    overflow: hidden;
+    resize: none;
+    height: auto;
+  }
+  
+  .auto-resize-textarea:focus {
+    outline: none; /* Опционально: убирает рамку фокуса */
+  }
+  
+  
+
   .form-group {
     margin-bottom: 20px;
     color:#c0bebd;
