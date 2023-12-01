@@ -138,7 +138,7 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="dialog">Диалог с оператором</label>
-                    <textarea type="text" id="dialog" name="dialog" className="auto-resize-textarea" value={request.dialog} readOnly />
+                    <textarea type="text" id="dialog"  className="auto-resize-textarea" value={request.dialog} readOnly />
                 </div>
                 {renderButtons()}
                 <div>
