@@ -6,12 +6,9 @@ import axios from 'axios';
 const RequestDescriptionForm = ({ request }) => {
     const [dataArray, setDataArray] = useState([]);
     const { tg, queryId } = useTelegram();
-    const textareaRef = useRef(null);
-    const [height, setHeight] = useState('auto');
 
-    const handleChange = () => {
-        setHeight(`${textareaRef.current.scrollHeight}px`);
-      };
+
+
     // const SendData = () => {
     //     // console.log(userRequestId, userRequestId, userRequestId)
     //     console.log(request)
@@ -99,7 +96,6 @@ const RequestDescriptionForm = ({ request }) => {
             body: JSON.stringify(data)
         })
     }, [request])
-    
 
 
     const renderButtons = () => {
@@ -120,7 +116,7 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
             );
         }
-
+        
     }
 
     return (
@@ -141,7 +137,7 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="dialog">Диалог с оператором</label>
-                    <textarea type="text" id="dialog" ref={textareaRef} className="auto-resize-textarea" value={request.dialog} onChange={handleChange} readOnly />
+                    <textarea type="text" id="dialog" className="auto-resize-textarea" value={request.dialog} readOnly />
                 </div>
                 {renderButtons()}
                 <div>
