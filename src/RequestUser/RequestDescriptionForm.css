@@ -40,7 +40,6 @@ button {
 
 .auto-resize-textarea {
   resize: none;
-  overflow-y: hidden;
   min-height: 50px;
 }
 
