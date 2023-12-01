@@ -1,4 +1,4 @@
-import React, { useCallback ,useEffect,useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './RequestDescriptionForm.css';
 import { useTelegram } from "../Hooks/useTelegram";
 import axios from 'axios';
@@ -6,9 +6,12 @@ import axios from 'axios';
 const RequestDescriptionForm = ({ request }) => {
     const [dataArray, setDataArray] = useState([]);
     const { tg, queryId } = useTelegram();
+    const textareaRef = useRef(null);
+    const [height, setHeight] = useState('auto');
 
-
-
+    const handleChange = () => {
+        setHeight(`${textareaRef.current.scrollHeight}px`);
+      };
     // const SendData = () => {
     //     // console.log(userRequestId, userRequestId, userRequestId)
     //     console.log(request)
@@ -71,13 +74,13 @@ const RequestDescriptionForm = ({ request }) => {
 
     const idu = request.userRequestId
 
-    const sendData = useCallback(()=>{
+    const sendData = useCallback(() => {
         tg.sendData(`/resToOperator ${idu}`)
         // console.log(idu)
     })
-    
 
-    const sendPhoto = useCallback(() =>{
+
+    const sendPhoto = useCallback(() => {
         tg.sendData(`/resToOperatorPhoto ${idu}`)
     })
 
@@ -96,8 +99,8 @@ const RequestDescriptionForm = ({ request }) => {
             body: JSON.stringify(data)
         })
     }, [request])
-
     
+
 
     const renderButtons = () => {
         if (request.status === 'ожидает ответа оператора') {
@@ -117,7 +120,7 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
             );
         }
-        
+
     }
 
     return (
@@ -138,7 +141,7 @@ const RequestDescriptionForm = ({ request }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="dialog">Диалог с оператором</label>
-                    <textarea type="text" id="dialog"  className="auto-resize-textarea" value={request.dialog} readOnly />
+                    <textarea type="text" id="dialog" ref={textareaRef} className="auto-resize-textarea" value={request.dialog} onChange={handleChange} readOnly />
                 </div>
                 {renderButtons()}
                 <div>
@@ -149,7 +152,7 @@ const RequestDescriptionForm = ({ request }) => {
                                 <div className="request-nicknameUser">{med.idMedia}</div>
                                 <div className="request-subject">{med.UserRequestId}</div>
                                 <div>
-                                {/* <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button> */}
+                                    {/* <button type="button" onClick={() => handleShowPhoto(med.idMedia)}>Показать фото</button> */}
                                 </div>
                             </div>
                         ))
