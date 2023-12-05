@@ -44,6 +44,7 @@ const RequestDescriptionForm = ({ request }) => {
             userRequestId: request.userRequestId,
             username: request.username,
             queryId,
+            userId: request.userId
         }
         fetch('https://tg-server-0ckm.onrender.com/replyToOperator', {
             method: 'POST',
@@ -122,7 +123,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={ closeReq }>Закрыть заявку</button>
                     {/* <button type="button" onClick={onSendData}>Ответить</button> */}
-                    <button type="button" onClick={onSendData}>Отправить фото</button>
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         } else if (request.status === 'Заявка в обработке!') {
@@ -130,7 +131,7 @@ const RequestDescriptionForm = ({ request }) => {
                 <div>
                     <button type="button" onClick={ closeReq }>Закрыть заявку</button>
                     <button type="button" onClick={onSendData}>Ответить</button>
-                    <button type="button" onClick={onSendData}>Отправить фото</button>
+                    <button type="button" onClick={onSendPhoto}>Отправить фото</button>
                 </div>
             );
         }
