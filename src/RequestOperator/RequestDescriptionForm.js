@@ -16,7 +16,9 @@ const RequestDescriptionForm = ({ request }) => {
         // tg.close()
     }
     const sendPhoto = useCallback(() =>{
-        tg.sendData(`/resToOperatorPhoto ${idu}`)
+       
+        tg.sendData(`/resToOperatorPhoto ${idu}`);
+        tg.close();
     })
 
     const userj = request.username;
@@ -27,7 +29,9 @@ const RequestDescriptionForm = ({ request }) => {
     const id = request.userRequestId;
     const rep = useCallback(() => {
 
-        tg.sendData(`/resToUser ${id}`)
+
+        tg.sendData(`/resToUser ${id}`);
+        tg.close();
        // console.log(JSON.stringify(data))
     }, [id])
     

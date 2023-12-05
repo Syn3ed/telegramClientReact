@@ -51,7 +51,8 @@ const RequestDescriptionForm = ({ request }) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        })
+        });
+        tg.close();
     }, [request])
 
     const onSendPhoto = useCallback(() => {
@@ -72,17 +73,19 @@ const RequestDescriptionForm = ({ request }) => {
     const idu = request.userRequestId
 
     const sendData = useCallback(() => {
-        tg.sendData(`/resToOperator ${idu}`)
+       
+        tg.sendData(`/resToOperator ${idu}`);
+        tg.close();
         // console.log(idu)
     })
 
 
     const sendPhoto = useCallback(() => {
-        tg.sendData(`/resToOperatorPhoto ${idu}`)
+        tg.sendData(`/resToOperatorPhoto ${idu}`);
+        tg.close();
     })
 
     const closeReq = useCallback(() => {
-        tg.close();
         const data = {
             userRequestId: request.userRequestId,
             username: request.username,
@@ -94,7 +97,8 @@ const RequestDescriptionForm = ({ request }) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        })
+        });
+        tg.close();
     }, [request])
 
 
@@ -103,7 +107,7 @@ const RequestDescriptionForm = ({ request }) => {
             return (
                 <div>
                     <button type="button" onClick={closeReq}>Закрыть заявку</button>
-                    {/* <button type="button" onClick={onSendData}>Ответить</button> */}
+                    <button type="button" onClick={sendData}>Ответить</button>
                     <button type="button" onClick={sendPhoto}>Отправить фото</button>
                 </div>
             );

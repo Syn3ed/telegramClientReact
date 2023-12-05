@@ -42,6 +42,7 @@ const RequestDescriptionForm = ({ request }) => {
     
 
     const onSendData = useCallback(() => {
+
         const data = {
             userRequestId: request.userRequestId,
             username: request.username,
@@ -54,7 +55,7 @@ const RequestDescriptionForm = ({ request }) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        })
+        });        tg.close();
     }, [request])
 
 
@@ -110,7 +111,7 @@ const RequestDescriptionForm = ({ request }) => {
     }
 
     const onSendPhoto = useCallback(() => {
-        // tg.close();
+       
         const data = {
             userRequestId: request.userRequestId,
             username: request.username,
@@ -122,7 +123,8 @@ const RequestDescriptionForm = ({ request }) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        })
+        });
+        tg.close();
     }, [request])
 
     // const photoToChat = useCallback((id) => {
