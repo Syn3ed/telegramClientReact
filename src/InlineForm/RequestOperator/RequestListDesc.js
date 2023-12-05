@@ -25,7 +25,8 @@ const InlineRequestListDesc = () => {
                     description: item.description,
                     subject: item.subject,
                     username: item.username,
-                    address: item.address
+                    address: item.address,
+                    userId: item.userId,
                 }));
                 MainBut(dataArray[0].status);
                 console.log('Full Data Array:', dataArray[0].status);
@@ -85,6 +86,7 @@ const InlineRequestListDesc = () => {
                         subject: dataArray[0].subject,
                         username: dataArray[0].username,
                         address: dataArray[0].address,
+                        userId: dataArray[0].userId,
                     }}
                 />
             ) : (
