@@ -46,6 +46,7 @@ const RequestDescriptionForm = ({ request }) => {
             userRequestId: request.userRequestId,
             username: request.username,
             queryId,
+            userId: request.userId
         }
         fetch('https://tg-server-0ckm.onrender.com/replyToUser', {
             method: 'POST',
